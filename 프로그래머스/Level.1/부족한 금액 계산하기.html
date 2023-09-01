@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>부족한 금액 계산하기</h1>
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/82612"
+      >바로가기</a
+    >
+    <script>
+      function solution(price, money, count) {
+        let fullPrice = 0,
+          answer = 0;
+        for (let i = 1; i <= count; i++) {
+          fullPrice += i * price;
+        }
+        answer = money - fullPrice > 0 ? 0 : Math.abs(money - fullPrice);
+        return answer;
+      }
+
+      console.log(solution(3, 20, 4));
+    </script>
+  </body>
+</html>

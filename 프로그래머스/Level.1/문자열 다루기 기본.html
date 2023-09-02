@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>문자열 다루기 기본</h1>
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/12918"
+      >바로가기</a
+    >
+    <script>
+      function solution(s) {
+        const arr = s.split('').reduce((a, b) => {
+          return a + Number(b);
+        }, 0);
+
+        if ((s.length === 4 || s.length === 6) && !isNaN(arr)) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      console.log(solution('a234')); //예상답: false
+      console.log(solution('1234')); //예상답: true
+      console.log(solution('0x16')); //예상답: false
+    </script>
+  </body>
+</html>

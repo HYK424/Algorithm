@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>최대공약수와 최소공배수</h1>
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/12940">바로가기</a>
+    <script>
+      const gcd = (a, b) => {
+        if (b === 0) return a;
+        else return gcd(b, a % b);
+      };
+
+      function solution(n, m) {
+        //완전탐색을 사용하여 풀 수 최대공약수를 얻을 수 있으나 유클리드 호제법을 사용하여 보다 쉽게 값을 얻을 수 있다.
+        var answer = [];
+        const gcdNum = gcd(n, m);
+        //최소공배수: 두 자연수의 곱 / 최대 공약수
+        const lcmNum = (n * m) / gcdNum;
+        answer.push(gcdNum, lcmNum);
+        return answer;
+      }
+
+      console.log(solution(3, 12)); //예상답: [3, 12]
+      console.log(solution(2, 5)); //예상답: [1, 10]
+    </script>
+  </body>
+</html>

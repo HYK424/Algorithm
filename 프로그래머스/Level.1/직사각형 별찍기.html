@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>직사각형 별찍기</h1>
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/12969">바로가기</a>
+    <script>
+      function solution(s) {
+        const arr = s.split(' ');
+        const width = Number(arr[0]);
+        const height = Number(arr[1]);
+        let answer = '';
+        for (let i = 0; i < height; i++) {
+          for (let j = 0; j < width; j++) {
+            answer += '*';
+          }
+          answer += '\n';
+        }
+        return answer;
+      }
+
+      console.log(solution('5 3'));
+      //예상답:
+      //   *****
+      //   *****
+      //   *****
+    </script>
+  </body>
+</html>
+
+<!-- 참고) repeat함수를 사용하여 특정 문자열을 반복하여 생성하는 방법도 있다.
+ 예를 들어, '*'.repeat(5) 일 경우 '*****' 문자열이 생성된다.
+ 이렇게 생성된 '*****' 뒤에 '/n'을 붙이고 다시 repeat함수를 사용하는 등의 방법이 가능하다.  -->

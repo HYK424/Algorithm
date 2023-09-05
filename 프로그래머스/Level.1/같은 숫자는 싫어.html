@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>같은 숫자는 싫어</h1>
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/12906">바로가기</a>
+    <script>
+      function solution(arr) {
+        var answer = [];
+
+        for (let i = 0; i < arr.length; i++) {
+          answer.push(arr[i]);
+          let len = answer.length;
+          if (answer[len - 1] === answer[len - 2]) {
+            answer.pop();
+          }
+        }
+
+        return answer;
+      }
+      console.log(solution([1, 1, 3, 3, 0, 1, 1])); //예상답: [1,3,0,1]
+      console.log(solution([4, 4, 4, 3, 3])); //예상답: [4,3]
+    </script>
+  </body>
+</html>
+
+<!-- 참고) 배열의 filter함수를 이용해 간단하게 비교할 수 있다.
+또한, answer.length를 이용해 push만 사용하여 배열을 만드는 방법도 있다. -->

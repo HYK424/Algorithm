@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>3진법 뒤집기</h1>
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/68935">바로가기</a>
+    <script>
+      function solution(n) {
+        //number에 toString(n)함수를 사용해 10진수 => n진수로 변환할 수 있다.
+        //반대로 string에 parseInt('string', n)함수를 사용해 n진수 => 10진수로 다시 변환할 수 있다.
+        let base3 = n.toString(3);
+        let len = base3.length;
+        base3 = base3.split('');
+        for (let i = 0; i < Math.floor(len / 2); i++) {
+          [base3[i], base3[len - i - 1]] = [base3[len - i - 1], base3[i]];
+        }
+        return parseInt(base3.join(''), 3); //
+      }
+      console.log(solution(45)); //예상답: 7
+      console.log(solution(125)); //예상답: 229
+    </script>
+  </body>
+</html>
+
+<!-- 참고) 최초에 10진법의 숫자를 3진법의 문자열로 바꾼 후, 문자열 => 배열로 변환한다. 이후 배열에서 reverse함수를 사용하면
+반복문을 사용하지 않고도 쉽게 자릿수를 뒤집을 수 있다.
+그리고 배열 => 문자열 => parseInt를 이용해 다시 10진수인 숫자로 값을 반환하는 방법도 있다. -->

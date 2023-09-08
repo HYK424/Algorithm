@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>크기가 작은 부분문자열</h1>
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/147355">바로가기</a>
+    <script>
+      function solution(t, p) {
+        var answer = 0;
+        let cnt = p.length;
+        const pNum = Number(p);
+        for (let i = 0; i < t.length - (p.length - 1); i++) {
+          let sliced = Number(t.slice(i, cnt++));
+          if (sliced <= pNum) answer++;
+        }
+        return answer;
+      }
+
+      console.log(solution('3141592', '271')); //예상답: 2
+      console.log(solution('500220839878', '7')); //예상답: 8
+      console.log(solution('10203', '15')); //예상답: 3
+    </script>
+  </body>
+</html>

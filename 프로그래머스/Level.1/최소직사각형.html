@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>최소직사각형</h1>
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/86491">바로가기</a>
+    <script>
+      function solution(sizes) {
+        var answer = 0;
+        let Lmax = Number.MIN_SAFE_INTEGER,
+          Rmax = Number.MIN_SAFE_INTEGER;
+          let
+        for (let i of sizes) {
+          if (i[0] < i[1]) {
+            if (i[0] > Rmax) Rmax = i[0];
+            if (i[1] > Lmax) Lmax = i[1];
+          } else {
+            if (i[1] > Rmax) Rmax = i[1];
+            if (i[0] > Lmax) Lmax = i[0];
+          }
+        }
+
+        return Lmax * Rmax;
+      }
+
+      console.log(
+        solution([
+          [60, 50],
+          [30, 70],
+          [60, 30],
+          [80, 40],
+        ]),
+      ); //예상답: 4000
+      console.log(
+        solution([
+          [10, 7],
+          [12, 3],
+          [8, 15],
+          [14, 7],
+          [5, 15],
+        ]),
+      ); //예상답: 120
+      console.log(
+        solution([
+          [14, 4],
+          [19, 6],
+          [6, 16],
+          [18, 7],
+          [7, 11],
+        ]),
+      ); //예상답: 133
+    </script>
+  </body>
+</html>
+
+<!-- 참고) 위의 풀이는 탐색을 최소로 사용하고 싶어 작성한 코드다.
+보다 깔끔하게 하려면 최초에 sort나 map 함수를 이용해 배열을 한 번 정렬시키는 편이 좋다. -->

@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>시저 암호</h1>
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/12926">바로가기</a>
+    <script>
+      function solution(s, n) {
+        var answer = '';
+        const regexUpper = /[A-Z]/;
+        const regexLower = /[a-z]/;
+        for (let i = 0; i < s.length; i++) {
+          //문자열 함수 charCodeAt(index)는 해당 index 문자의 아스키코드 반환
+          //fromCharCode(number)는 해당 숫자(아스키코드)에 해당하는 문자 반환
+          const codeNum = s.charCodeAt(i);
+          if (regexUpper.test(s[i])) {
+            if (codeNum + n > 90) answer += String.fromCharCode(s.charCodeAt(i) - 26 + n);
+            else answer += String.fromCharCode(s.charCodeAt(i) + n);
+          } else if (regexLower.test(s[i])) {
+            if (codeNum + n > 122) answer += String.fromCharCode(s.charCodeAt(i) - 26 + n);
+            else answer += String.fromCharCode(s.charCodeAt(i) + n);
+          } else if (s[i] === ' ') {
+            answer += ' ';
+          }
+        }
+        return answer;
+      }
+      console.log(solution('AB', 2)); //예상답: "BC"
+      console.log(solution('z', 1)); //예상답: "a"
+      console.log(solution('a B z', 4)); //예상답: "e F d"
+    </script>
+  </body>
+</html>

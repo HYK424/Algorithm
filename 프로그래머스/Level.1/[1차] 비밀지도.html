@@ -4,15 +4,15 @@
     <title>출력결과</title>
   </head>
   <body>
-    <h1>시저 암호</h1>
-    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/12926">바로가기</a>
+    <h1>[1차] 비밀지도</h1>
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/17681">바로가기</a>
     <script>
       function solution(n, arr1, arr2) {
         var answer = [];
         for (let i = 0; i < n; i++) {
-            //단순히 toString(2)으로만 이진법 변환 시 0으로 시작되는 부분은 삭제된다.
-            //따라서 padStart() 함수를 이용해 2진법 변환 후 앞부분에 0을 채워준다.
-            //예시) "abc".padStart(6, "123465") => "123abc"
+          //단순히 toString(2)으로만 이진법 변환 시 0으로 시작되는 부분은 삭제된다.
+          //따라서 padStart() 함수를 이용해 2진법 변환 후 앞부분에 0을 채워준다.
+          //예시) "abc".padStart(6, "123465") => "123abc"
           let baseArr1 = arr1[i].toString(2).padStart(n, '0');
           let baseArr2 = arr2[i].toString(2).padStart(n, '0');
           let map = '';

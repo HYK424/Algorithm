@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>숫자 문자열과 영단어</h1>
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/81301">바로가기</a>
+    <script>
+      function solution(s) {
+        var answer = '';
+        let strNum = '';
+        const str = {
+          zero: '0',
+          one: '1',
+          two: '2',
+          three: '3',
+          four: '4',
+          five: '5',
+          six: '6',
+          seven: '7',
+          eight: '8',
+          nine: '9',
+        };
+
+        for (let i of s) {
+          if ('0' <= i && i <= '9') answer += i;
+          else {
+            strNum += i;
+            if (str[strNum]) {
+              answer += str[strNum];
+              strNum = '';
+            }
+          }
+        }
+        return Number(answer);
+      }
+      console.log(solution('one4seveneight')); //예상답: 1478
+      console.log(solution('23four5six7')); //예상답: 234567
+      console.log(solution('2three45sixseven')); //예상답: 234567
+      console.log(solution('123')); //예상답: 123
+    </script>
+  </body>
+</html>

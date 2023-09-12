@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>가장 가까운 같은 글자</h1>
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/142086">바로가기</a>
+    <script>
+      function solution(s) {
+        var answer = [];
+        if (answer.length < 1) answer.push(-1);
+        for (let i = 1; i < s.length; i++) {
+          let pt = i - 1;
+          let cnt = 1;
+          for (; pt >= 0; pt--) {
+            if (s[pt] === s[i]) {
+              answer.push(cnt);
+              break;
+            }
+            cnt++;
+          }
+          if (i === answer.length) answer.push(-1);
+        }
+
+        return answer;
+      }
+
+      console.log(solution('banana')); //예상답: [-1, -1, -1, 2, 2, 2]
+      console.log(solution('foobar')); //예상답: [-1, -1, 1, -1, -1, -1]
+    </script>
+  </body>
+</html>
+
+<!-- 참고) 이중 반복문을 사용하지 않고 한 번의 반복문으로 푸는 방법도 있다.
+빈 객체를 만들어 놓고, 반복문을 탐색해서 원하는 값이 없으면 객체에 키값을 넣는다.
+이후 다시 탐색했을 때 객체를 확인한다. 값이 있으면 index에서 객체의 속성값을 빼고 객체를 업데이트한다.
+
+function solution(s) {
+    var answer = [...s];
+    let obj = {};
+
+    return answer.map((val, index) => {
+      if (obj[val] === undefined) {
+        obj[val] = index;
+        return -1;
+      } else {
+        let result = index - obj[val];
+        obj[val] = index;
+        return result;
+      }
+    });
+  } -->

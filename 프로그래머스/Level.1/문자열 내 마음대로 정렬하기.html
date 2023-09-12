@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>문자열 내 마음대로 정렬하기</h1>
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/12915">바로가기</a>
+    <script>
+      function solution(strings, n) {
+        strings.sort((a, b) => {
+          if (a[n] !== b[n]) return a[n] > b[n] ? 1 : -1;
+          else return a > b ? 1 : -1;
+        });
+        return strings;
+      }
+
+      console.log(solution(['sun', 'bed', 'car'], 1)); //예상답: ["car", "bed", "sun"]
+      console.log(solution(['abce', 'abcd', 'cdx'], 2)); //예상답:["abcd", "abce", "cdx"]
+    </script>
+  </body>
+</html>
+
+<!-- 참고) sort 안에서 localCompare() 함수를 사용해 더 간결하게 정렬할 수도 있다.
+referenceStr.localeCompare(compareString[, locales[, options]]) => referenceStr이 compareString보다 앞에 있으면 -1, 뒤에 있으면 1, 같으면 0 반환
+'a'.localeCompare('b') // -1 , 
+'b'.localeCompare('a') // 1
+'c'.localeCompare('c') // 0
+예시) return strings.sort((s1, s2) => s1[n] === s2[n] ? s1.localeCompare(s2) : s1[n].localeCompare(s2[n])); -->

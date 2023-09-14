@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>푸드 파이트 대회</h1>
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/134240">바로가기</a>
+    <script>
+      function solution(food) {
+        var answer = '';
+        for (let i = 1; i <= food.length; i++) {
+          if (food[i] >= 2) {
+            let cnt = Math.floor(food[i] / 2);
+            while (cnt > 0) {
+              answer += i;
+              cnt--;
+            }
+          }
+        }
+
+        return answer + '0' + [...answer].reverse().join('');
+      }
+      console.log(solution([1, 3, 4, 6])); //예상답: "1223330333221"
+      console.log(solution([1, 7, 1, 2])); //예상답: "111303111 "
+    </script>
+  </body>
+</html>
+
+<!-- 참고) 문자열에 repeat 함수를 적용하면 더 간결하게 짤 수 있다. -->

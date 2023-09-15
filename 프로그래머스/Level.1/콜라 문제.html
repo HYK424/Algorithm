@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>콜라 문제</h1>
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/132267">바로가기</a>
+    <script>
+      let answer = 0;
+      const checkCoke = (a, b, n) => {
+        const cokeSum = Math.floor(n / a) * b;
+        if (cokeSum < 1) return 0;
+
+        return cokeSum + checkCoke(a, b, cokeSum + (n % a));
+      };
+
+      function solution(a, b, n) {
+        return checkCoke(a, b, n);
+      }
+      console.log(solution(2, 1, 20)); //예상답: 19
+      console.log(solution(3, 1, 20)); //예상답: 9
+      console.log(solution(5, 3, 21)); //예상답: 27
+    </script>
+  </body>
+</html>

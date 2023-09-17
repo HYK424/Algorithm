@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>명예의 전당 (1)</h1>
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/138477">바로가기</a>
+    <script>
+      function solution(k, score) {
+        var answer = [];
+        let honor = [];
+        const honorLen = k > score.length ? score.length : k;
+
+        for (let i = 0; i < honorLen; i++) {
+          honor.push(score[i]);
+          honor.sort((a, b) => b - a);
+          answer.push(Math.min(...honor));
+        }
+
+        for (let i = k; i < score.length; i++) {
+          honor.sort((a, b) => b - a);
+          if (honor[honorLen - 1] <= score[i]) {
+            honor.pop();
+            honor.push(score[i]);
+            answer.push(Math.min(...honor));
+          } else answer.push(Math.min(...honor));
+        }
+
+        return answer;
+      }
+      console.log(solution(3, [10, 100, 20, 150, 1, 100, 200])); //예상답: [10, 10, 10, 20, 20, 100, 100]
+      console.log(solution(4, [0, 300, 40, 300, 20, 70, 150, 50, 500, 1000])); //예상답: [0, 0, 0, 0, 20, 40, 70, 70, 150, 300]
+      console.log(solution(10, [1, 10, 2, 5, 6, 7, 8])); //예상답: [1, 1, 1, 1, 1, 1, 1]
+    </script>
+  </body>
+</html>

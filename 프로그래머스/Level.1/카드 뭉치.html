@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>카드 뭉치</h1>
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/159994">바로가기</a>
+    <script>
+      function solution(cards1, cards2, goal) {
+        var answer = 'Yes';
+        let index1 = 0,
+          index2 = 0;
+        for (let val of goal) {
+          if (val === cards1[index1]) index1++;
+          else if (val === cards2[index2]) index2++;
+          else {
+            answer = 'No';
+            break;
+          }
+        }
+
+        return answer;
+      }
+
+      console.log(solution(['i', 'drink', 'water'], ['want', 'to'], ['i', 'want', 'to', 'drink', 'water'])); //예상답: "Yes"
+      console.log(solution(['i', 'water', 'drink'], ['want', 'to'], ['i', 'want', 'to', 'drink', 'water'])); //예상답: "No"
+    </script>
+  </body>
+</html>

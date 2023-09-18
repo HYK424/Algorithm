@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>2016년</h1>
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/12901">바로가기</a>
+    <script>
+      function solution(a, b) {
+        const dateArr = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+        const date = new Date(`2016-${a}-${b}`);
+        date.getDate('2016-05-24');
+        var answer = dateArr[date.getDay()];
+        return answer;
+      }
+
+      console.log(solution(5, 24)); //예상답: "TUE"
+    </script>
+  </body>
+</html>
+
+<!-- 참고) new Date객체 대신에 Date함수를 사용하면 요일 표시 배열을 굳이 만들 필요없다. 반환값에서 앞의 3글자만 추출한 후 대문자로 변환
+const date = Date(`2016-${a}-${b}`);
+return date.slice(0,4).toUpperCase();  -->

@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>과일 장수</h1>
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/135808">바로가기</a>
+    <script>
+      function solution(k, m, score) {
+        var answer = 0;
+        score.sort((a, b) => a - b);
+        let cnt = Math.floor(score.length / m);
+        let index = score.length - m;
+        for (let i = 0; i < cnt; i++) {
+          answer += score[index] * m;
+          index -= m;
+        }
+        return answer;
+      }
+      console.log(solution(3, 4, [1, 2, 3, 1, 2, 3, 1])); //예상답: 8
+      console.log(solution(4, 3, [4, 1, 2, 2, 4, 4, 4, 4, 1, 2, 4, 2])); //예상답: 33
+    </script>
+  </body>
+</html>

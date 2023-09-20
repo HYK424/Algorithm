@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>소수 만들기</h1>
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/12977">바로가기</a>
+    <script>
+      function getDecimal(num) {
+        let answer = 1;
+        for (let i = 2; i <=Math.sqrt(num); i++) {
+          if (num % i === 0) {
+            answer = 0;
+            break;
+          }
+        }
+        return answer;
+      }
+
+      function solution(nums) {
+        var sum = 0;
+        let count = 0;
+        for (let i = 0; i < nums.length; i++) {
+          for (let j = i + 1; j < nums.length; j++) {
+            for (let k = j + 1; k < nums.length; k++) {
+              sum = nums[i] + nums[j] + nums[k];
+              count += getDecimal(sum);
+            }
+          }
+        }
+
+        return count;
+      }
+      console.log(solution([1, 2, 3, 4])); //예상답: 1
+      console.log(solution([1, 2, 7, 6, 4])); //예상답: 4
+    </script>
+  </body>
+</html>

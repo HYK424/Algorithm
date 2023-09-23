@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>기사단원의 무기</h1>
+    <a href="https://school.programmers.co.kr/learn/courses/30/lessons/136798">바로가기</a>
+    <script>
+      function solution(number, limit, power) {
+        var answer = 0;
+
+        for (let i = 1; i <= number; i++) {
+          let cnt = 0;
+          let sub = i;
+          for (let j = 1; j <= Math.sqrt(sub); j++) {
+            if (i % j == 0) {
+              if (i / j === j) cnt++;
+              else cnt += 2;
+            }
+          }
+          if (cnt <= limit) answer += cnt;
+          else {
+            cnt = power;
+            answer += cnt;
+          }
+        }
+
+        return answer;
+      }
+
+      console.log(solution(5, 3, 2)); //예상답: 10
+      console.log(solution(10, 3, 2)); //예상답: 21
+    </script>
+  </body>
+</html>
